@@ -20,9 +20,9 @@
 cmake_minimum_required(VERSION 3.1)  # Mandatory
 
 # set the project name 
-project(fibonacci_sum                # Mandatory
+project(fechas                # Mandatory
     VERSION 1.0
-    DESCRIPTION "A simple CMake project for the Fibonacci Sum application"
+    DESCRIPTION "A simple CMake project for the fechas application"
     LANGUAGES CXX)
 
 # specify the C++ standard
@@ -44,20 +44,20 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 add_library(tools src/tools.cc)
 
 # Adds an executable target called "fibonacci_sum" to be built from the source files listed in the command invocation.
-add_executable(fibonacci_sum
-    src/fibonacci_sum.h
-    src/fibonacci_sum.cc
-    src/fibonacci_main.cc)
+add_executable(fechas
+    src/fechas.h
+    src/fechas.cc
+    src/fechas_main.cc)
 
 # tell the linker to bind these objects together
 # It's important to place target_link_libraries after the add_executable and find_package lines, so all linked components are known.
-target_link_libraries(fibonacci_sum tools)
+target_link_libraries(fechas tools)
 
 # Add expected compiler features to a target.
-target_compile_features(fibonacci_sum PRIVATE cxx_std_14)
+target_compile_features(fechas PRIVATE cxx_std_14)
 
 # Add compile options to a target.
-target_compile_options(fibonacci_sum PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_options(fechas PRIVATE -Wall -Wextra -Wpedantic)
 
 
 ############################################################

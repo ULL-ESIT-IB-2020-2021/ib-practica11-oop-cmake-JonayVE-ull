@@ -18,18 +18,32 @@
  */
 
 #include <iostream>
+#include "complejos.h"    
 
-#include "tools.h"    
-#include "fibonacci_sum.h"    
 
-/** Main function
- *  @param[in] argc Number of command line parameters
- *  @param[in] argv Vector containing (char*) the parameters
- */
-int main (int argc, char* argv[]) {
-  Usage(argc, argv);
-  std::string limit = argv[1];
-  const size_t kLimit = stoi(limit);
-  std::cout << "Sum: " << fibonacci_sum(kLimit) << std::endl; 
-  return 0;
+void Complex::Print() {
+  std::cout << real_ << " + (" << imaginary_ << ") i" << std::endl;
 }
+
+void Complex::SetComplex(double real, double imaginary) {
+  real_ = real;
+  imaginary_ = imaginary;
+}
+
+Complex Add(Complex complex1, Complex complex2) {
+ 
+  Complex resultado(complex1.GetReal() + complex2.GetReal(), complex1.GetImaginary() + complex2.GetImaginary());
+
+  return resultado;
+
+}
+
+Complex Sub(Complex complex1, Complex complex2) {
+
+  Complex resultado(complex1.GetReal() - complex2.GetReal(), complex1.GetImaginary() - complex2.GetImaginary());
+
+  return resultado;
+
+}
+
+

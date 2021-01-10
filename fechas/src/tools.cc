@@ -31,14 +31,18 @@
  *  @param[in] argv Vector containing (char*) the parameters
  */
 void Usage(int argc, char *argv[]) {
-  if (argc != 2) {
-    std::cout << argv[0] << ": Falta un número natural como parámetro" << std::endl;
+  if (argc != 4) {
+    if (argc == 2) {
+      std::string parameter{argv[1]};
+      if (parameter == "--help") {
+        std::cout << kHelpText << std::endl;
+        exit(EXIT_SUCCESS);
+      }
+    }
+    std::cout << argv[0] << " - Gestión de fechas" << std::endl;
+    std::cout << "Modo de uso: " << argv[0] << " dd/mm/aa N fichero_salida.txt" << std::endl;
     std::cout << "Pruebe " << argv[0] << " --help para más información" << std::endl;
     exit(EXIT_SUCCESS);
   }
-  std::string parameter{argv[1]};
-  if (parameter == "--help") {
-    std::cout << kHelpText << std::endl;
-    exit(EXIT_SUCCESS);
-  }
+
 }
