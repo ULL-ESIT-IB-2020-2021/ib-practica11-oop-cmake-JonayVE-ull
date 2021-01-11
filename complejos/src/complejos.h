@@ -17,6 +17,10 @@ class Complex{
   void SetComplex(double real_, double imaginary);
   int GetReal() { return real_; }
   int GetImaginary() { return imaginary_; }
+  void Add(Complex complex1, Complex complex2);
+  void Sub(Complex complex1, Complex complex2);
+  void Multiplicate(Complex complex1, Complex complex2);
+  void Divide(Complex complex1, Complex complex2);
 
  private:
   double real_;
@@ -24,7 +28,4 @@ class Complex{
 
 };
 
-void Print();
-void SetComplex(double real_, double imaginary);
-Complex Add(Complex complex1, Complex complex2);
-Complex Sub(Complex complex1, Complex complex2);
+

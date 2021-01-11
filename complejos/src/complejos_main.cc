@@ -23,9 +23,13 @@ int main (int argc, char* argv[]) {
   Complex complex1{4, 5}, complex2{7, -8};
   Complex result{0,0};
 
-  result = Add(complex1, complex2);
+  result.Add(complex1, complex2);
   result.Print();
-  result = Sub (complex1, complex2);
+  result.Sub(complex1, complex2);
+  result.Print();
+  result.Multiplicate(complex1, complex2);
+  result.Print();
+  result.Divide(complex1, complex2);
   result.Print();
 
   return 0;

@@ -20,7 +20,7 @@
 #include "fechas.h"
 #include <string>    
 #include <fstream>
-#include <fstream>
+
 
 /** Main function
  *  @param[in] argc Number of command line parameters
@@ -34,6 +34,11 @@ int main (int argc, char* argv[]) {
   std::string day = "";
   std::string month = "";
   std::string year = "";
+
+  if(date.length() != 8){
+    std::cout << "Introduzca la fecha de la siguiente forma dd/mm/aa, escribiendo 0 cuando no se alcance las decenas(01/02/2002)" << std::endl;
+    exit(EXIT_SUCCESS);
+  }
 
   day = day + date[0] + date[1];
   month = month + date[3] + date[4];

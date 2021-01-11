@@ -30,20 +30,23 @@ void Complex::SetComplex(double real, double imaginary) {
   imaginary_ = imaginary;
 }
 
-Complex Add(Complex complex1, Complex complex2) {
- 
-  Complex resultado(complex1.GetReal() + complex2.GetReal(), complex1.GetImaginary() + complex2.GetImaginary());
-
-  return resultado;
-
+void Complex::Add(Complex complex1, Complex complex2){
+  real_ = complex1.real_ + complex2.real_;
+  imaginary_ = complex1.real_ + complex2.real_;
 }
 
-Complex Sub(Complex complex1, Complex complex2) {
-
-  Complex resultado(complex1.GetReal() - complex2.GetReal(), complex1.GetImaginary() - complex2.GetImaginary());
-
-  return resultado;
-
+void Complex::Sub(Complex complex1, Complex complex2){
+  real_ = complex1.real_ - complex2.real_;
+  imaginary_ = complex1.real_ - complex2.real_;
 }
 
+void Complex::Multiplicate(Complex complex1, Complex complex2){
+  real_ = complex1.real_ * complex2.real_ - complex1.imaginary_ * complex2.imaginary_;
+  imaginary_ = complex1.real_ * complex2.imaginary_ + complex1.imaginary_ * complex2.real_;
+}
+
+void Complex::Divide(Complex complex1, Complex complex2){
+  real_ = (complex1.real_ * complex2.real_ - complex1.imaginary_ * complex2.imaginary_) / (complex2.real_ * complex2.real_ + complex2.imaginary_ * complex2.imaginary_);
+  imaginary_ = (complex1.real_ * complex2.imaginary_ + complex1.imaginary_ * complex2.real_) / (complex2.real_ * complex2.real_ + complex2.imaginary_ * complex2.imaginary_);
+}
 
