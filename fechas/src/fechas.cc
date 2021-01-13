@@ -53,7 +53,10 @@ Date Increment(Date date){
               new_day = 1;
               new_month = date.GetMonth() + 1;
             }
-          }else{exit(EXIT_SUCCESS);}
+          }else{
+            std::cout << "fecha incorrecta" << std::endl;
+            exit(EXIT_SUCCESS);
+            }
         }else{
           if(date.GetDay()<29){
             if((date.GetDay()+1) <= 28){
@@ -63,7 +66,10 @@ Date Increment(Date date){
               new_day = 1;
               new_month = date.GetMonth() + 1;
             }
-          }else{exit(EXIT_SUCCESS);}
+          }else{
+            std::cout << "fecha incorrecta" << std::endl;
+            exit(EXIT_SUCCESS);
+            }
         }
       
         break;
@@ -83,6 +89,9 @@ Date Increment(Date date){
               new_day = 1;
               new_month = date.GetMonth() + 1;
             }
+        }else{
+          std::cout << "fecha incorrecta" << std::endl;
+          exit(EXIT_SUCCESS);
         }
         
         break;
@@ -100,7 +109,13 @@ Date Increment(Date date){
               new_month = date.GetMonth() + 1;
             }
         }
+        else{
+          std::cout << "fecha incorrecta" << std::endl;
+          exit(EXIT_SUCCESS);
+        }
       default:
+        std::cout << "fecha incorrecta" << std::endl;
+        exit(EXIT_SUCCESS);
         break;
     }
     if (new_month == 13){

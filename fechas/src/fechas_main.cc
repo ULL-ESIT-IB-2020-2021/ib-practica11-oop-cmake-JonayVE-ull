@@ -20,6 +20,8 @@
 #include "fechas.h"
 #include <string>    
 #include <fstream>
+#include <sstream>
+#include <vector>
 
 
 /** Main function
@@ -28,31 +30,24 @@
  */
 int main (int argc, char* argv[]) {
   Usage(argc, argv);
-  std::string date = argv[1];
+  std::stringstream date(argv[1]);
+  std::stringstream get_data;
   int number_of_dates = std::stoi(argv[2]);
   std::string output_file = argv[3];
-  std::string day = "";
-  std::string month = "";
-  std::string year = "";
+  int day, month, year;
 
-  if(date.length() != 8){
-    std::cout << "Introduzca la fecha de la siguiente forma dd/mm/aa, escribiendo 0 cuando no se alcance las decenas(01/02/2002)" << std::endl;
-    exit(EXIT_SUCCESS);
-  }
 
-  day = day + date[0] + date[1];
-  month = month + date[3] + date[4];
-  year = year + date[6] + date[7] + date[8] + date [9];
+   while (date.good()) {
+    std::string substr;
+    getline(date, substr, '/');
+    get_data << substr << ' ';
+    }
 
-  int nday = std::stoi(day);
-  int nmonth = std::stoi(month);
-  int nyear = std::stoi(year);
+  get_data >> day >> month >> year;
 
-  Date old_date(nday, nmonth, nyear);
+  Date old_date(day, month, year);
 
   std::ofstream output{output_file};
-
-  
 
   for(int i=0; i < number_of_dates; ++i){
 
